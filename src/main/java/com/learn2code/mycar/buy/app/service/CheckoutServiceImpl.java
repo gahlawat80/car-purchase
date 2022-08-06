@@ -6,6 +6,8 @@ import com.learn2code.mycar.buy.app.repository.CheckoutRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CheckoutServiceImpl implements CheckoutService{
     @Autowired
@@ -27,5 +29,10 @@ public class CheckoutServiceImpl implements CheckoutService{
             return "Record inserted successfully in Checkout table!";
         }
         return null;
+    }
+
+    @Override
+    public List<Checkout> fetchAllItemsForCustomer(String customerCode) {
+        return checkoutRepository.fetchAll(customerCode);
     }
 }
