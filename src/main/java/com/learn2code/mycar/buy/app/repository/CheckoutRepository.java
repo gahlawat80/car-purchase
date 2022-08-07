@@ -29,7 +29,11 @@ public class CheckoutRepository {
 
     public Checkout findItemById(int id){
         String sql = "SELECT * FROM checkout WHERE id=?";
-        return jdbcTemplate.queryForObject(sql,new CheckoutRowMapper(),id);
+        try {
+            return jdbcTemplate.queryForObject(sql, new CheckoutRowMapper(), id);
+        }catch (Exception e){
+            return null;
+        }
     }
 
     public void updateCarDetails(Checkout dbItem) {

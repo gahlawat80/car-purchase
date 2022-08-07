@@ -2,6 +2,7 @@ package com.learn2code.mycar.buy.app.service;
 
 import com.learn2code.mycar.buy.app.dto.CheckoutRequest;
 import com.learn2code.mycar.buy.app.entity.Checkout;
+import com.learn2code.mycar.buy.app.exception.DetailsNotFoundException;
 import com.learn2code.mycar.buy.app.repository.CheckoutRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,7 +39,7 @@ public class CheckoutServiceImpl implements CheckoutService{
     }
 
     @Override
-    public Checkout updateItem(int id, Checkout checkout) {
+    public Checkout updateItem(int id, Checkout checkout) throws DetailsNotFoundException {
         Checkout dbItem = checkoutRepository.findItemById(id);
         if(Objects.nonNull(checkout)){
             if(checkout.getCustomerCode() !="" && checkout.getCustomerCode() !=null){
@@ -76,12 +77,12 @@ public class CheckoutServiceImpl implements CheckoutService{
     }
 
     @Override
-    public void deleteItemById(int id) {
+    public void deleteItemById(int id) throws DetailsNotFoundException {
         Checkout record = checkoutRepository.findItemById(id);
         if(record !=null ){
             checkoutRepository.deleteById(id);
         } else {
-            throw new RuntimeException("Record with id-"+id+" NOT found in DB!");
+            throw new DetailsNotFoundException("Record with id-"+id+" NOT found in DB!");
         }
     }
 

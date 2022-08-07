@@ -2,6 +2,8 @@ package com.learn2code.mycar.buy.app.controller;
 
 import com.learn2code.mycar.buy.app.dto.CheckoutRequest;
 import com.learn2code.mycar.buy.app.entity.Checkout;
+import com.learn2code.mycar.buy.app.exception.DetailsNotFoundException;
+
 import com.learn2code.mycar.buy.app.service.CheckoutService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,21 +39,16 @@ public class CheckoutController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Checkout> updateCheckout(@PathVariable int id, @RequestBody Checkout checkout){
+    public ResponseEntity<Checkout> updateCheckout(@PathVariable int id, @RequestBody Checkout checkout) throws DetailsNotFoundException {
         Checkout updatedRecord = checkoutService.updateItem(id,checkout);
         LOG.info("********Checkout single item from db after update**********{} for {}",updatedRecord,id);
         return ResponseEntity.ok(updatedRecord);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteItemById(@PathVariable int id){
-        try{
+    public ResponseEntity<String> deleteItemById(@PathVariable int id) throws DetailsNotFoundException {
             checkoutService.deleteItemById(id);
             return new ResponseEntity<>("Checkout item with id-"+id+" is deleted successfully!",HttpStatus.OK);
-        } catch (Exception e){
-            LOG.error("Error occured"+e.getMessage());
-        }
-        return null;
     }
 
     @DeleteMapping
