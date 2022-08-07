@@ -13,4 +13,7 @@ public interface CheckoutService {
     Checkout updateItem(int id, Checkout checkout);
 
     void deleteItemById(int id);
+
+    void deleteAllItems(String customerId);
+
 }

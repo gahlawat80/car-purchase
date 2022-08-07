@@ -46,4 +46,16 @@ public class CheckoutController {
         return null;
     }
 
+    @DeleteMapping
+    public ResponseEntity<String> deleteAll(){
+        String customerId="123";
+        try{
+            checkoutService.deleteAllItems(customerId);
+            return ResponseEntity.ok("All checkout items deleted!");
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }

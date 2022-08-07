@@ -79,4 +79,9 @@ public class CheckoutServiceImpl implements CheckoutService{
     public void deleteItemById(int id) {
         checkoutRepository.deleteById(id);
     }
+
+    @Override
+    public void deleteAllItems(String customerId) {
+        checkoutRepository.deleteAllCheckoutItems(customerId);
+    }
 }

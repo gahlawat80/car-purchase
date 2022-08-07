@@ -3,6 +3,7 @@ package com.learn2code.mycar.buy.app.repository;
 import com.learn2code.mycar.buy.app.entity.Checkout;
 import com.learn2code.mycar.buy.app.repository.rowmapper.CheckoutRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -38,6 +39,11 @@ public class CheckoutRepository {
 
     public void deleteById(int id) {
         String sql = "DELETE FROM checkout WHERE id=?";
-        jdbcTemplate.update(sql,id);
+        jdbcTemplate.update(sql, id);
+    }
+
+    public void deleteAllCheckoutItems(String customerId) {
+        String sql = "DELETE FROM checkout WHERE customer_code=?";
+        jdbcTemplate.update(sql,customerId);
     }
 }
