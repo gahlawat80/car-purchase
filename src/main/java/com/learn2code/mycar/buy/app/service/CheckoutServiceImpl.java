@@ -35,4 +35,9 @@ public class CheckoutServiceImpl implements CheckoutService{
     public List<Checkout> fetchAllItemsForCustomer(String customerCode) {
         return checkoutRepository.fetchAll(customerCode);
     }
+
+    @Override
+    public void deleteAllItems(String customerId) {
+        checkoutRepository.deleteAllCheckoutItems(customerId);
+    }
 }
