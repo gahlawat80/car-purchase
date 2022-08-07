@@ -10,5 +10,10 @@ public interface CheckoutService {
 
     List<Checkout> fetchAllItemsForCustomer(String customerCode);
 
+    Checkout updateItem(int id, Checkout checkout);
+
+    void deleteItemById(int id);
+
     void deleteAllItems(String customerId);
+
 }
