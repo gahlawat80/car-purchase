@@ -25,4 +25,19 @@ public class CheckoutRepository {
         String sql = "SELECT * FROM checkout WHERE customer_code=?";
         return jdbcTemplate.query(sql,new CheckoutRowMapper(),customerCode);
     }
+
+    public Checkout findItemById(int id){
+        String sql = "SELECT * FROM checkout WHERE id=?";
+        return jdbcTemplate.queryForObject(sql,new CheckoutRowMapper(),id);
+    }
+
+    public void updateCarDetails(Checkout dbItem) {
+        String sql = "UPDATE checkout SET customer_code=?,car_detail=?,quantity=?,unit_price=?,tax_rate=?,total_tax=?,total_price=? WHERE id=?";
+        jdbcTemplate.update(sql,dbItem.getCustomerCode(),dbItem.getCarDetail(),dbItem.getQuantity(),dbItem.getUnitPrice(),dbItem.getTaxRate(),dbItem.getTotalTax(),dbItem.getTotalPrice(),dbItem.getId());
+    }
+
+    public void deleteById(int id) {
+        String sql = "DELETE FROM checkout WHERE id=?";
+        jdbcTemplate.update(sql,id);
+    }
 }

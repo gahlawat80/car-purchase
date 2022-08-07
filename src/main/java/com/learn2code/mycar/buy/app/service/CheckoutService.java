@@ -9,4 +9,8 @@ public interface CheckoutService {
     String saveCarDetailsToCheckout(CheckoutRequest req);
 
     List<Checkout> fetchAllItemsForCustomer(String customerCode);
+
+    Checkout updateItem(int id, Checkout checkout);
+
+    void deleteItemById(int id);
 }

@@ -29,4 +29,21 @@ public class CheckoutController {
         return new ResponseEntity<>(items,HttpStatus.OK);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Checkout> updateCheckout(@PathVariable int id, @RequestBody Checkout checkout){
+        Checkout updatedRecord = checkoutService.updateItem(id,checkout);
+        return ResponseEntity.ok(updatedRecord);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteItemById(@PathVariable int id){
+        try{
+            checkoutService.deleteItemById(id);
+            return new ResponseEntity<>("Checkout item with id-"+id+" is deleted successfully!",HttpStatus.OK);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }

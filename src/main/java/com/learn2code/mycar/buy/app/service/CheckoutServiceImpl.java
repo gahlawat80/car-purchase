@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class CheckoutServiceImpl implements CheckoutService{
@@ -34,5 +35,48 @@ public class CheckoutServiceImpl implements CheckoutService{
     @Override
     public List<Checkout> fetchAllItemsForCustomer(String customerCode) {
         return checkoutRepository.fetchAll(customerCode);
+    }
+
+    @Override
+    public Checkout updateItem(int id, Checkout checkout) {
+        Checkout dbItem = checkoutRepository.findItemById(id);
+        if(Objects.nonNull(checkout)){
+            if(checkout.getCustomerCode() !="" && checkout.getCustomerCode() !=null){
+                dbItem.setCustomerCode(checkout.getCustomerCode());
+            }
+            if(checkout.getCarDetail() != null && checkout.getCarDetail() !=""){
+                dbItem.setCarDetail(checkout.getCarDetail());
+            }
+            if(checkout.getQuantity() >0){
+                dbItem.setQuantity(checkout.getQuantity());
+                double totalTax = dbItem.getQuantity()*dbItem.getTaxRate()*dbItem.getUnitPrice()/100;
+                dbItem.setTotalTax(totalTax);
+                double totalPrice = (dbItem.getQuantity()*dbItem.getUnitPrice())+totalTax;
+                dbItem.setTotalPrice(totalPrice);
+
+            }
+            if(checkout.getUnitPrice() >0){
+                dbItem.setUnitPrice(checkout.getUnitPrice());
+                double totalTax = dbItem.getQuantity()*dbItem.getTaxRate()*dbItem.getUnitPrice()/100;
+                dbItem.setTotalTax(totalTax);
+                double totalPrice = (dbItem.getQuantity()*dbItem.getUnitPrice())+totalTax;
+                dbItem.setTotalPrice(totalPrice);
+            }
+            if(checkout.getTaxRate() >0){
+                dbItem.setTaxRate(checkout.getTaxRate());
+                double totalTax = dbItem.getQuantity()*dbItem.getTaxRate()*dbItem.getUnitPrice()/100;
+                dbItem.setTotalTax(totalTax);
+                double totalPrice = (dbItem.getQuantity()*dbItem.getUnitPrice())+totalTax;
+                dbItem.setTotalPrice(totalPrice);
+            }
+
+            checkoutRepository.updateCarDetails(dbItem);
+        }
+        return dbItem;
+    }
+
+    @Override
+    public void deleteItemById(int id) {
+        checkoutRepository.deleteById(id);
     }
 }
