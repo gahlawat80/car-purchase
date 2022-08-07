@@ -29,4 +29,16 @@ public class CheckoutController {
         return new ResponseEntity<>(items,HttpStatus.OK);
     }
 
+    @DeleteMapping
+    public ResponseEntity<String> deleteAll(){
+        String customerId="123";
+        try{
+            checkoutService.deleteAllItems(customerId);
+            return ResponseEntity.ok("All checkout items deleted!");
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }
