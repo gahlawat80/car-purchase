@@ -17,4 +17,17 @@ public class Checkout {
     private double totalTax;
     private double totalPrice;
 
+    @Override
+    public String toString() {
+        return "Checkout{" +
+                "id=" + id +
+                ", customerCode='" + customerCode + '\'' +
+                ", carDetail='" + carDetail + '\'' +
+                ", quantity=" + quantity +
+                ", unitPrice=" + unitPrice +
+                ", taxRate=" + taxRate +
+                ", totalTax=" + totalTax +
+                ", totalPrice=" + totalPrice +
+                '}';
+    }
 }

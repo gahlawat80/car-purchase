@@ -77,11 +77,21 @@ public class CheckoutServiceImpl implements CheckoutService{
 
     @Override
     public void deleteItemById(int id) {
-        checkoutRepository.deleteById(id);
+        Checkout record = checkoutRepository.findItemById(id);
+        if(record !=null ){
+            checkoutRepository.deleteById(id);
+        } else {
+            throw new RuntimeException("Record with id-"+id+" NOT found in DB!");
+        }
     }
 
     @Override
     public void deleteAllItems(String customerId) {
         checkoutRepository.deleteAllCheckoutItems(customerId);
+    }
+
+    @Override
+    public Checkout findItemById(int id) {
+        return checkoutRepository.findItemById(id);
     }
 }
