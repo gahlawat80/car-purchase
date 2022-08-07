@@ -1,0 +1,16 @@
+07-08-2022 09:42:42.536 [main] INFO  c.l.m.b.a.CarPurchaseAppApplication.logStarting - Starting CarPurchaseAppApplication using Java 1.8.0_211 on LAPTOP-2RPQ4V3G with PID 14020 (C:\Personal\Pardeep\Java Path\RealProjects\car-purchase-app\target\classes started by gahla in C:\Personal\Pardeep\Java Path\RealProjects\car-purchase-app)
+07-08-2022 09:42:42.562 [main] DEBUG c.l.m.b.a.CarPurchaseAppApplication.logStarting - Running with Spring Boot v2.7.2, Spring v5.3.22
+07-08-2022 09:42:42.563 [main] INFO  c.l.m.b.a.CarPurchaseAppApplication.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+07-08-2022 09:43:52.700 [main] INFO  c.l.m.b.a.CarPurchaseAppApplication.logStarted - Started CarPurchaseAppApplication in 96.857 seconds (JVM running for 128.82)
+07-08-2022 09:44:47.850 [http-nio-8081-exec-1] INFO  c.l.m.b.a.c.CheckoutController.deleteAll - ***********All Items deleted**************
+07-08-2022 09:46:09.132 [http-nio-8081-exec-5] INFO  c.l.m.b.a.c.CheckoutController.saveCheckout - ******Saved items to checkout********
+07-08-2022 09:51:18.798 [main] INFO  c.l.m.b.a.CarPurchaseAppApplication.logStarting - Starting CarPurchaseAppApplication using Java 1.8.0_211 on LAPTOP-2RPQ4V3G with PID 14180 (C:\Personal\Pardeep\Java Path\RealProjects\car-purchase-app\target\classes started by gahla in C:\Personal\Pardeep\Java Path\RealProjects\car-purchase-app)
+07-08-2022 09:51:18.801 [main] DEBUG c.l.m.b.a.CarPurchaseAppApplication.logStarting - Running with Spring Boot v2.7.2, Spring v5.3.22
+07-08-2022 09:51:18.802 [main] INFO  c.l.m.b.a.CarPurchaseAppApplication.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+07-08-2022 09:51:23.815 [main] INFO  c.l.m.b.a.CarPurchaseAppApplication.logStarted - Started CarPurchaseAppApplication in 5.657 seconds (JVM running for 6.817)
+07-08-2022 09:58:34.502 [main] INFO  c.l.m.b.a.CarPurchaseAppApplication.logStarting - Starting CarPurchaseAppApplication using Java 1.8.0_211 on LAPTOP-2RPQ4V3G with PID 22700 (C:\Personal\Pardeep\Java Path\RealProjects\car-purchase-app\target\classes started by gahla in C:\Personal\Pardeep\Java Path\RealProjects\car-purchase-app)
+07-08-2022 09:58:34.507 [main] DEBUG c.l.m.b.a.CarPurchaseAppApplication.logStarting - Running with Spring Boot v2.7.2, Spring v5.3.22
+07-08-2022 09:58:34.508 [main] INFO  c.l.m.b.a.CarPurchaseAppApplication.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+07-08-2022 09:58:38.872 [main] INFO  c.l.m.b.a.CarPurchaseAppApplication.logStarted - Started CarPurchaseAppApplication in 4.844 seconds (JVM running for 5.619)
+07-08-2022 09:58:48.768 [http-nio-8081-exec-2] ERROR c.l.m.b.a.c.CheckoutController.deleteItemById - Error occuredIncorrect result size: expected 1, actual 0
+07-08-2022 10:01:14.307 [http-nio-8081-exec-2] ERROR c.l.m.b.a.c.CheckoutController.deleteItemById - Error occuredIncorrect result size: expected 1, actual 0

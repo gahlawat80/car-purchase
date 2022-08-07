@@ -16,4 +16,5 @@ public interface CheckoutService {
 
     void deleteAllItems(String customerId);
 
+    Checkout findItemById(int id);
 }

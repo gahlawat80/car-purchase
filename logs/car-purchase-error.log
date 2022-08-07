@@ -1,0 +1,1 @@
+07-08-2022 10:01:14.307 [http-nio-8081-exec-2] ERROR c.l.m.b.a.c.CheckoutController.deleteItemById - Error occuredIncorrect result size: expected 1, actual 0
